@@ -10,7 +10,7 @@ const register = async (req, res) => {
     if (isExists) {
       return res
         .status(208)
-        .json({ msg: "Email Already has been registerd !" });
+        .json({ msg: "Email Already has been registerd !" ,status:false});
     } else {
       bcrypt
         .hash(password, +process.env.KEY_SALTING)
@@ -26,9 +26,9 @@ const register = async (req, res) => {
               role: role ? "Dealer" : "Customer",
             });
             const isSave = await saveUser.save();
-            return res.status(201).json({ msg: "Now, You are registered !" });
+            return res.status(201).json({ msg: "Now, You are registered !",status:true });
           } else {
-            return res.status(203).json({ msg: "Invalid Data Format" });
+            return res.status(203).json({ msg: "Invalid Data Format",status:false });
           }
         });
     }
