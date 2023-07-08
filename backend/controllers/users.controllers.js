@@ -53,7 +53,7 @@ const login = async (req, res) => {
                 process.env.PRIVATE_KEY
               ),
               uid:isExists._id,
-              isDelaer:isExists.role=="Delaer"?true:false,
+              isDelaer:isExists.role=="Dealer"?true:false,
               status:true
             });
         } else {
