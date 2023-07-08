@@ -52,9 +52,10 @@ const login = async (req, res) => {
                 { userId: isExists._id, userName: isExists.name,role:isExists.role },
                 process.env.PRIVATE_KEY
               ),
+              status:true
             });
         } else {
-          return res.status(200).json({ msg: "Incorrect Password" });
+          return res.status(200).json({ msg: "Incorrect Password",status:false });
         }
       });
     } else {
@@ -62,6 +63,7 @@ const login = async (req, res) => {
         .status(203)
         .json({
           msg: "You are not registered. Please Register yourself first",
+          status:false
         });
     }
   } catch (error) {}
