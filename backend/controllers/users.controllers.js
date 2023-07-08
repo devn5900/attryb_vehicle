@@ -52,6 +52,7 @@ const login = async (req, res) => {
                 { userId: isExists._id, userName: isExists.name,role:isExists.role },
                 process.env.PRIVATE_KEY
               ),
+              uid:isExists._id,
               status:true
             });
         } else {
